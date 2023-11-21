@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33502.453
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PYTHONBLYAT", "PYTHONBLYAT\PYTHONBLYAT.pyproj", "{FD8AF927-DFC4-4707-AB81-EF79AAB9997B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD8AF927-DFC4-4707-AB81-EF79AAB9997B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD8AF927-DFC4-4707-AB81-EF79AAB9997B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {21599B33-E918-4990-9A0A-575F2AA4FDA9}
+	EndGlobalSection
+EndGlobal
