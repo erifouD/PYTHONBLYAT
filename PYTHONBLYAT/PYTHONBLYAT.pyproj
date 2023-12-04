@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>fd8af927-dfc4-4707-ab81-ef79aab9997b</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>6_13.py</StartupFile>
+    <StartupFile>7_13.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -26,6 +26,7 @@
     <Compile Include="6_21.py" />
     <Compile Include="6_5.py" />
     <Compile Include="6_6.py" />
+    <Compile Include="7_13.py" />
     <Compile Include="PYTHONBLYAT.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
