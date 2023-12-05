@@ -29,6 +29,8 @@ CourierApplications = []
     TotalWeight += Amount
     ApplicationList.append(InputFruit(Name, Amount))
 '''
+
+#Debug Stuff=====================================
 ApplicationList = [
         InputFruit("Апельсин", 4),
         InputFruit("Груша", 3),
@@ -37,6 +39,7 @@ ApplicationList = [
         InputFruit("Дыня", 2)
         ]
 TotalWeight = 34
+#End Debug Stuff=================================
 
 if(TotalWeight % 9 == 0): CourierNumber = TotalWeight / 9
 else: CourierNumber = TotalWeight // 9 + 1
@@ -91,7 +94,5 @@ for i in CourierApplications:
 
 print("\nОстатки на складе:\nНаименование\t№Склада\tВес\tСтоимость за кг")
 for Key, Value in FruitsData.items():
-    if(len(Key) >7):
-        print(f"{Key}\t{Value[0]}\t{Value[1]}\t{Value[2]}")
-    else:
-        print(f"{Key}\t\t{Value[0]}\t{Value[1]}\t{Value[2]}")
+    tabulation = "\t" * (2 - (len(Key)//8))
+    print(f"{Key}{tabulation}{Value[0]}\t{Value[1]}\t{Value[2]}")
