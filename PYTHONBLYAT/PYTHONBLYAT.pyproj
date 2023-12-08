@@ -29,7 +29,18 @@
     <Compile Include="7_13.py" />
     <Compile Include="7_5.py" />
     <Compile Include="7_6.py" />
+    <Compile Include="exception.py" />
+    <Compile Include="MyLabs\Мандриченко _ЛР5.py" />
+    <Compile Include="MyLabs\Мандриченко ЛР6.py" />
+    <Compile Include="MyLabs\Мандриченко_ЛР1.py" />
+    <Compile Include="MyLabs\Мандриченко_ЛР2.py" />
+    <Compile Include="MyLabs\Мандриченко_ЛР3.py" />
+    <Compile Include="MyLabs\Мандриченко_ЛР4.py" />
+    <Compile Include="MyLabs\Мандриченко_ЛР7.py" />
     <Compile Include="PYTHONBLYAT.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MyLabs\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
