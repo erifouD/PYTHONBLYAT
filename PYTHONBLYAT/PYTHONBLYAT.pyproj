@@ -36,6 +36,8 @@
     <Compile Include="MyLabs\Мандриченко_ЛР2.py" />
     <Compile Include="MyLabs\Мандриченко_ЛР3.py" />
     <Compile Include="MyLabs\Мандриченко_ЛР4.py" />
+    <Compile Include="MyLabs\Мандриченко_ЛР5.py" />
+    <Compile Include="MyLabs\Мандриченко_ЛР6.py" />
     <Compile Include="MyLabs\Мандриченко_ЛР7.py" />
     <Compile Include="PYTHONBLYAT.py" />
   </ItemGroup>
