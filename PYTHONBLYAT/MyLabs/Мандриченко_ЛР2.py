@@ -1,11 +1,21 @@
-import math
+#подключение необходимых для выполнения
+#задания математических методов
+from math import cos, log, sqrt
 
-def F (x, y):
-    numenator = math.cos(y) - math.sqrt(x * y ** 2)
-    denumenator = math.log(y) + 0.5 ** 6 + math.cos(y) ** 2
-    return (numenator / denumenator)
-
-
+#получение значения x с клавиатуры в виде
+#числа с плавающей точкой (дробного)
 x = float(input("Введите переменную x:"))
+
+#получение значения y с клавиатуры в виде
+#числа с плавающей точкой (дробного)
 y = float(input("Введите переменную y:")) 
-print("z = {0:.2f}".format(F(x, y)))
+
+#вычисление верхней части дроби
+numenator = cos(y) - sqrt(x * y ** 2)
+
+#вычисление нижней части дроби
+denumenator = log(y) + 0.5 ** 6 + cos(y) ** 2
+
+#форматированный вывод, где в качестве аргумента
+#подается частое числителя и знаменателя
+print("z = {0:.2f}".format((numenator / denumenator)))

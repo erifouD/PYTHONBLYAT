@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>fd8af927-dfc4-4707-ab81-ef79aab9997b</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>7_13.py</StartupFile>
+    <StartupFile>MyLabs\Мандриченко_ЛР3.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -30,8 +30,6 @@
     <Compile Include="7_5.py" />
     <Compile Include="7_6.py" />
     <Compile Include="exception.py" />
-    <Compile Include="MyLabs\Мандриченко _ЛР5.py" />
-    <Compile Include="MyLabs\Мандриченко ЛР6.py" />
     <Compile Include="MyLabs\Мандриченко_ЛР1.py" />
     <Compile Include="MyLabs\Мандриченко_ЛР2.py" />
     <Compile Include="MyLabs\Мандриченко_ЛР3.py" />
