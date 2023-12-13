@@ -1,87 +1,86 @@
-
-FruitsData = {
-    "Абрикос" : [1, 30, 120],
-    "Авокадо" : [1, 19, 90],
-    "Алыча" : [1, 32, 67],
-    "Апельсин" : [1, 67, 129],
-    "Арбуз" : [1, 129, 19],
-    "Гранат" : [2, 36, 56],
-    "Грейпфрут" : [2, 23, 78],
-    "Груша" : [2, 57, 20],
-    "Дыня" : [2, 48, 45],
-    "Инжир" : [2, 12, 54],
-    "Кешью" : [2, 31, 73]
+fruits_data = {
+    "Абрикос": [1, 30, 120],
+    "Авокадо": [1, 19, 90],
+    "Алыча": [1, 32, 67],
+    "Апельсин": [1, 67, 129],
+    "Арбуз": [1, 129, 19],
+    "Гранат": [2, 36, 56],
+    "Грейпфрут": [2, 23, 78],
+    "Груша": [2, 57, 20],
+    "Дыня": [2, 48, 45],
+    "Инжир": [2, 12, 54],
+    "Кешью": [2, 31, 73]
 }
 
+applications = [{"Weight": 0}]
 
-def InputFruit(Name, Amount):
-    FruitsData[Name][1] -= Amount
-    return (Name, Amount)
+def input_fruit(i):
+    
+    print(f"Фрукт №{i + 1}") #Указание номера фрукта при вводе
+    fruit_name = str(input("Введите название фрукта с большой буквы: "))
+    fruit_amount = int(input("Введите количество фрукта: "))
+    print() #Делаю дополнительный отступ, чтобы визуально разделить вводимые данные
+    return (fruit_name, fruit_amount) #Возвращение кортежа 
 
-Price = 0
-TotalWeight = 0
-ApplicationList = []
-PriceApplications = []
+# Словарь с товаром, который присутствует в магазине
+store_in_stock = {
+    "Апельсин": 12,
+    "Груша": 3,
+    "Арбуз": 23,
+    "Авокадо": 2,
+    "Дыня": 0
+}
 
+# 1. Апельсин, в наличии 12 кг нужно 20
+# 2. Груша, в наличии 3 кг нужно 10
+# 3. Арбуз, в наличии 23 кг нужно 35
+# 4. Авокадо, в наличии 2 кг нужно 8
+# 5. Дыня, в наличии 0 кг нужно 14
 for i in range(5):
-    Name = str(input("Введите название: "))
-    Amount = int(input("Введите количество: "))
-    Name = Name[0].capitalize() + Name.lower()[1:]
-    TotalWeight += Amount
-    ApplicationList.append(InputFruit(Name, Amount))
-    
+    # Создание новой заявки
+    new_application = input_fruit(i)
 
-#Debug Stuff=====================================
+    # Расчет веса необходимого для дозакупки[Вес заявки - вес в наличии]
+    umbilical_weight = new_application[1] - store_in_stock[new_application[0]]
 
-'''ApplicationList = [
-        InputFruit("Апельсин", 4),
-        InputFruit("Груша", 3),
-        InputFruit("Арбуз", 23),
-        InputFruit("Авокадо", 2),
-        InputFruit("Дыня", 2)
-        ]
-TotalWeight = 34'''
-'''user.price(1) = {"price of one amount fruit":"129 руб."}
-user.price(2) = {"price of one amount  fruit": "20 руб."}
-user.price(3) = {"price of one amount  fruit": "19 руб."}
-user.price(4) = {"price of one amount  fruit": "90 руб."}
-user.price(5) = {"price of one amount  fruit": "45 руб."}'''
-
-TotalPrice1 = InputFruit("Апельсин", 4)*user.price(1)*2
-TotalPrice2 = InputFruit("Груша", 3)*user.price(2)
-TotalPrice3 = InputFruit("Арбуз", 23)*user.price(3)*2
-TotalPrice4 = InputFruit("Авокадо", 2)*user.price(4)
-TotalPrice5 = InputFruit("Дыня", 2)*user.price(5)*2
-
-TotalPrice = TotalPrice1 + TotalPrice2 + TotalPrice3 + TotalPrice4 + TotalPrice5
-
-print("TotalPrice", "Цена  заказа")
+    #Вычитаем со склада запрошенный вес текущего фрукта
+    fruits_data[new_application[0]][1] -= umbilical_weight
+    while True:
+        #Если вес текущей рассматриваемой заявки + необходимы для добавления вес в сумме меньше 30
+        #new_application[0] - это имя фрукта, а new_application[1] его вес. так как мы делали такой возврат в функции на 23 строке
+        if applications[-1]["Weight"] + umbilical_weight < 30: 
+            #Обращение к массиву по индексу [-1] означает что мы рассматриваем последний элемент
+            applications[-1]["Weight"] += umbilical_weight #Добавление в переменную общего веса заявки необходимый
+            #Добавление в словарь заявки введенный фрукт
+            applications[-1][new_application[0]] = umbilical_weight
+            #Выходим из бесконечного цикла, объявленного на 45 строке
+            break
+        else: #Если условие на 48 строке ложь
+            #Отнимаем от необходимого веса ту часть, чтобы вес заявки составил 30кг
+            umbilical_weight += applications[-1]["Weight"] - 30
+            #Добавление в словарь заявки введенный фрукт
+            applications[-1][new_application[0]] = 30 - applications[-1]["Weight"]
+            #Общий вес заявки выставляем 30 (То есть она полностью укомлектована)
+            applications[-1]["Weight"] = 30
+            #Создаем новую заявку, в которую будут добавляться остаточные фрукты
+            applications.append({"Weight": 0})
+            #Если код доходит до сюда, то он возвращается на 45 строку
 
 
 
+#Вывод данных созданных заявок (Цикл с количеством итераций по длине списка заявок)
+for i in range(len(applications)):
+    #Выводим номер заявки, Общий вес, и строку список фруктов. \n - перенос строки, \t - табуляция
+    print(f"\nЗаявка №{i + 1}:\nОбщий вес: {applications[i]['Weight']}\n\tСписок фруктов:")
+
+    #Пробегаемся по словарю заявки с фруктами
+    for key, value in applications[i].items():
+        if key == 'Weight': continue #Вес пропускаем и не выводим, так как сделали это на 74 строке
+        print(f"\t{key} - {value}кг.") #Вывод названия фрукта и веса, указанных в заявке
 
 
-
-
-print("\nОстатки на складе:\nНаименование\t№Склада\tВес\tСтоимость за кг")
-for Key, Value in FruitsData.items():
-    tabulation = "\t" * (2 - (len(Key)//8))
-    print(f"{Key}{tabulation}{Value[0]}\t{Value[1]}\t{Value[2]}")
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#Вывод остатков на складе:
+print("\nОстатки на складе: ")
+for key, value in fruits_data.items():
+    #Вывод данных о фрукте
+    print(f"{key}:\n\t{value[0]} склад\n\tВес - {value[1]}кг\n\tЦена за кг - {value[2]}р")
