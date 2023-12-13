@@ -65,4 +65,4 @@ for key, value in application[1].items():
 print("\nОстатки на складе: ")
 for key, value in fruits_data.items():
     #Вывод данных о фрукте
-    print(f"{key}:\n\t{value[0]} склад\n\tВес - {value[1]}кг\n\tЦена за кг - {value[2]}р")
+    print(f"{key} - {value[1]}кг")
