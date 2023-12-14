@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>fd8af927-dfc4-4707-ab81-ef79aab9997b</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>PYTHONBLYAT.py</StartupFile>
+    <StartupFile>MyLabs\Мандриченко_ЛР5.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
