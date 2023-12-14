@@ -1,6 +1,3 @@
-from tkinter import FALSE
-
-
 fruits_data = {
     "Абрикос": [1, 30, 120],
     "Авокадо": [1, 19, 90],
